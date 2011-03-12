@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <path>rhone9C.ac</path>
+
+  <animation>
+    <object-name>moteur</object-name>
+    <object-name>bol</object-name>
+
+    <object-name>lowpoly</object-name>
+
+    <!-- transparent objects -->
+  </animation>
+
+  <animation>
+    <name>BlocMoteur</name>
+    <object-name>moteur</object-name>
+    <object-name>bol</object-name>
+    <object-name>lowpoly</object-name>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>BlocMoteur</object-name>
+    <property>engines/engine[0]/rpm</property>
+    <factor> -1 </factor>
+    <center>
+      <x-m> 0 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <object-name>moteur</object-name>
+    <min-m>0</min-m>
+    <max-property>/sim/rendering/static-lod/detailed</max-property>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <object-name>lowpoly</object-name>
+    <min-property>/sim/rendering/static-lod/detailed</min-property>
+    <max-property>/sim/rendering/static-lod/bare</max-property>
+  </animation>
+
+</PropertyList>
+

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList include="nieuport11-base.xml">
+
+  <sim>
+
+    <description>Nieuport 11 bebe (YASim)</description>
+    <flight-model archive="y">yasim</flight-model>
+    <aero archive="y">nieuport11-yasim</aero>
+
+  </sim>
+
+</PropertyList>
