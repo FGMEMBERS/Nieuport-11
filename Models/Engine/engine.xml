@@ -1,35 +1,111 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 
 <PropertyList>
 
   <path>rhone9C.ac</path>
 
   <animation>
+    <!-- Objets opaques -->
     <object-name>moteur</object-name>
     <object-name>bol</object-name>
-
-    <object-name>lowpoly</object-name>
-
+    
+    <object-name>moteurlow</object-name>
     <!-- transparent objects -->
   </animation>
 
+  <model>
+    <name>Bloc1</name>
+    <path>Aircraft/Nieuport-11/Models/Engine/blocpiston.xml</path>
+  </model>
+
+  <model>
+    <name>Bloc2</name>
+    <path>Aircraft/Nieuport-11/Models/Engine/blocpiston.xml</path>
+    <offsets>
+      <roll-deg> 40 </roll-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Bloc3</name>
+    <path>Aircraft/Nieuport-11/Models/Engine/blocpiston.xml</path>
+    <offsets>
+      <roll-deg> 80 </roll-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Bloc4</name>
+    <path>Aircraft/Nieuport-11/Models/Engine/blocpiston.xml</path>
+    <offsets>
+      <roll-deg> 120 </roll-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Bloc5</name>
+    <path>Aircraft/Nieuport-11/Models/Engine/blocpiston.xml</path>
+    <offsets>
+      <roll-deg> 160 </roll-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Bloc6</name>
+    <path>Aircraft/Nieuport-11/Models/Engine/blocpiston.xml</path>
+    <offsets>
+      <roll-deg> 200 </roll-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Bloc7</name>
+    <path>Aircraft/Nieuport-11/Models/Engine/blocpiston.xml</path>
+    <offsets>
+      <roll-deg> 240 </roll-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Bloc8</name>
+    <path>Aircraft/Nieuport-11/Models/Engine/blocpiston.xml</path>
+    <offsets>
+      <roll-deg> 280 </roll-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Bloc9</name>
+    <path>Aircraft/Nieuport-11/Models/Engine/blocpiston.xml</path>
+    <offsets>
+      <roll-deg> 320 </roll-deg>
+    </offsets>
+  </model>
+
   <animation>
-    <name>BlocMoteur</name>
-    <object-name>moteur</object-name>
-    <object-name>bol</object-name>
-    <object-name>lowpoly</object-name>
+    <name>HighPoly</name>
+    <object-name>Bloc1</object-name>
+    <object-name>Bloc2</object-name>
+    <object-name>Bloc3</object-name>
+    <object-name>Bloc4</object-name>
+    <object-name>Bloc5</object-name>
+    <object-name>Bloc6</object-name>
+    <object-name>Bloc7</object-name>
+    <object-name>Bloc8</object-name>
+    <object-name>Bloc9</object-name>
+  </animation>
+
+  <animation>
+    <name>LowPoly</name>
+    <object-name>moteurlow</object-name>
   </animation>
 
   <animation>
     <type>spin</type>
-    <object-name>BlocMoteur</object-name>
+    <object-name>HighPoly</object-name>
+    <object-name>LowPoly</object-name>
     <property>engines/engine[0]/rpm</property>
     <factor> -1 </factor>
-    <center>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-    </center>
     <axis>
       <x> 1 </x>
       <y> 0 </y>
@@ -39,17 +115,16 @@
 
   <animation>
     <type>range</type>
-    <object-name>moteur</object-name>
+    <object-name>HighPoly</object-name>
     <min-m>0</min-m>
     <max-property>/sim/rendering/static-lod/detailed</max-property>
   </animation>
 
   <animation>
     <type>range</type>
-    <object-name>lowpoly</object-name>
+    <object-name>LowPoly</object-name>
     <min-property>/sim/rendering/static-lod/detailed</min-property>
     <max-property>/sim/rendering/static-lod/bare</max-property>
   </animation>
 
 </PropertyList>
-
