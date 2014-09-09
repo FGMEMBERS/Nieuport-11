@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <sim include="Nasal/views.xml">
+
+    <description>Nieuport 11 bebe (YASim)</description>
+    <author>Emmanuel BARANGER (3D/FDM)</author>
+    <aircraft-version>0.2</aircraft-version>
+    <status>Alpha</status>
+
+    <fuel-fraction>1.0</fuel-fraction>
+
+    <startup>
+      <splash-texture>Aircraft/Nieuport-11/nieuport11-splash.png</splash-texture>
+    </startup>
+
+    <sound>
+      <path archive="y">Aircraft/Nieuport-11/Sounds/nieuport11-sound.xml</path>
+    </sound>
+
+    <model>
+      <path archive="y">Aircraft/Nieuport-11/Models/nieuport11.xml</path>
+      <livery>
+        <file type="string">default</file>
+      </livery>
+    </model>
+
+    <submodels> 
+      <serviceable type="bool">true</serviceable>
+      <path>Aircraft/Nieuport-11/Models/Effects/guns/submodels.xml</path>
+    </submodels>
+
+    <multiplay>
+      <chat_display>1</chat_display>
+      <generic> 
+        <int type="int" n="0">  0 </int>                                      <!-- 0 immat -->
+        <int type="int" n="1">  0 </int>                                      <!-- 1 immat -->
+        <int type="int" n="2">  0 </int>                                      <!-- 2 immat -->
+        <int type="int" n="3">  0 </int>                                      <!-- 3 immat -->
+        <int type="int" n="4">  0 </int>                                      <!-- 4 immat -->
+        <int type="int" n="5">  0 </int>                                      <!-- 5 immat -->
+        <int type="bool" n="6"> 1 </int>                                      <!-- 6 smoke/bomb/torpedo -->
+        <int type="int" n="7">  0 </int>                                      <!-- 7 color -->
+        <int n="8" alias="/systems/electrical/outputs/nav-lights">  0 </int>  <!-- 8 nav-lights -->
+        <int n="9" alias="/sim/model/lights/beacon/state">  false </int>      <!-- 9 strobe-lights -->
+        <int n="10" alias="/controls/electric/key-pos">  0 </int>             <!-- 10 key position -->
+        <float n="2" alias="/position/gear-agl-m">  0 </float>                <!-- 11 altitude for MP shadow -->
+        <float n="0" alias="/instrumentation/doors/crew/position-norm"/>
+        <float n="1" alias="/instrumentation/doors/passenger/position-norm"/>  
+      </generic>
+    </multiplay>
+
+    <help>
+      <title>Nieuport 11</title>
+      <line>______________________________________________</line>
+    </help>
+
+    <weight n="0">
+      <name>Pilot</name>
+      <weight-lb>180</weight-lb>
+      <max-lb>240</max-lb>
+      <min-lb>140</min-lb>
+    </weight>
+
+    <weight n="1">
+      <name>Pax</name>
+      <weight-lb>0</weight-lb>
+      <max-lb>240</max-lb>
+      <min-lb>0</min-lb>
+    </weight>
+
+    <weight n="2">
+      <name>Baggage</name>
+      <weight-lb>0</weight-lb>
+      <max-lb>20</max-lb>
+      <min-lb>0</min-lb>
+    </weight>
+
+    <menubar include="Dialogs/nieuport11-menu.xml"/>
+
+  </sim>
+
+  <controls>
+    <engines>
+      <engine>
+        <mixture archive="y"> 0.65 </mixture>
+      </engine>
+    </engines>
+  </controls> 
+
+  <input>
+    <keyboard include="Nasal/nieuport11-keyboard.xml"/>
+  </input>
+
+  <nasal>
+    <nieuport11>
+      <file>Aircraft/Nieuport-11/Nasal/nieuport11.nas</file>
+      <file>Aircraft/Nieuport-11/Nasal/liveries.nas</file>
+    </nieuport11>
+    <guns>
+      <file>Aircraft/Nieuport-11/Nasal/weapons.nas</file>
+    </guns>
+  </nasal>
+
+</PropertyList>
