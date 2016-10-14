@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Nieuport 11  : 2011 Emmanuel BARANGER
+
+     Source       : http://en.wikipedia.org/wiki/Nieuport_11
+                 
+     Wingspan     : 7.55 m   (  24 ft  9   in )
+     Length       : 5.8 m    (  19 ft  0   in )
+     Height       : 2.4 m    (   7 ft 10.5 in )
+     Empty weight : 344 kg   ( 759 lb         )
+     Engine       : Le Rhone 9C air-cooled rotary ( 80 hp )
+     Max speed    : 156 km/h (  85 kt         )
+-->
+<airplane mass="759" >
+
+  <approach speed="39" aoa="5" fuel="0.3">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.15"/>
+    <control-setting axis="/controls/engines/engine[0]/mixture" value="0.65"/>
+  </approach>
+  
+  <cruise speed="93" alt="5000" fuel="0.78" >
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="1" />
+    <control-setting axis="/controls/engines/engine[0]/mixture" value="0.78" />
+  </cruise>
+
+  <cockpit x="1.240" y="0.00" z="0.702"/>
+
+  <fuselage ax="2.765" ay="0" az="0.174" bx="1.43" by="0" bz="0.018" width="0.82" taper="0.74" midpoint="0.61"/>
+  <fuselage ax="1.43" ay="0" az="0.018" bx="-2.203" by="0" bz="0.29" width="0.62" taper="0.34" midpoint="0.0" cy="1.48" cz="1.23"/>
+
+  <!-- Wing up -->
+  <wing x="1.625" y="0" z="0.983" 
+        chord="1.446" 
+        length="3.800" 
+        taper="1.18"
+        dihedral="0.8"
+        sweep="6"
+        incidence="1.75"
+        twist="-1.3"
+        camber="0.095">
+        <stall aoa="18" width="3" peak="1.25"/>
+        <flap1 start="0.69" end="1" lift="1.4" drag="1.18"/>
+      
+        <control-input axis="/controls/flight/aileron" control="FLAP1" split="true"/>
+        <control-input axis="/controls/flight/aileron-trim" control="FLAP1" split="true"/>
+      
+        <control-output control="FLAP1" side="left" prop="/surface-positions/left-aileron-pos-norm"/>
+        <control-output control="FLAP1" side="right" prop="/surface-positions/right-aileron-pos-norm"/>
+  </wing>
+
+  <!-- Wing down -->
+  <mstab x="1.281" y="0.297" z="-0.284" 
+        chord="0.725" 
+        length="3.209" 
+        taper="1" 
+        dihedral="2"
+        sweep="2" 
+        incidence="3"
+        twist="-1.5"
+        camber="0.09">
+        <stall aoa="24" width="3" peak="1.5"/>
+  </mstab>
+  
+  <hstab x="-2.128" y="0" z="0.421" 
+	 chord="0.993" 
+	 length="1.446"
+       taper="0.8"
+       incidence="0.25"
+       effectiveness="1.46" 
+       camber="0.004"> 
+         <stall aoa="22" width="3.0" peak="1.5"/>
+         <flap0 start="0.0" end="1.08" lift="1.5" drag="1.17"/>
+
+         <control-input axis="/controls/flight/elevator" control="FLAP0"/>
+         <control-input axis="/controls/flight/elevator-trim" control="FLAP0"/>
+
+         <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
+  </hstab>
+
+  <vstab x="-2.480" y="0" z="0.249" 
+	   chord="0.833" 
+	   length="0.677"
+         effectiveness="1.75"
+         taper="1">
+         <stall aoa="20" width="3" peak="1.5"/>
+         <flap0 start="0" end="1" lift="1.46" drag="1.16"/>
+
+         <control-input axis="/controls/flight/rudder" square="true" control="FLAP0" invert="true"/>
+         <control-input axis="/controls/flight/rudder-trim" control="FLAP0" invert="true"/>
+
+         <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm" min="1" max="-1"/>
+  </vstab>
+
+  <!-- Engines      : Le Rhone 9C
+
+       Informations : http://en.wikipedia.org/wiki/Le_Rh%C3%B4ne_9C
+
+       Type         : Nine-cylinder, single-row rotary engine
+       Power        : 92 hp at 1300 rpm (maximum)
+       Displacement : 10.89 L  ( 664.47 in3 )
+       Masse        : 121.5 kg ( 268    lb  )
+       Compression  : 4.5:1
+  -->
+  <propeller x="2.659" y="0" z="0.087"  
+             radius="1.35"
+             mass="270"
+             moment="30"
+             blades="2"
+             cruise-power="75"
+             cruise-alt="5000"
+             cruise-speed="93"
+             cruise-rpm="1240"
+             takeoff-power="84"
+             takeoff-rpm="1300">
+             <actionpt x="2.848" y="0" z="0.087"/>
+             <piston-engine eng-power="80"
+                            eng-rpm="1300"
+                            alt="5000"
+                            bore="4.13"
+                            stroke="5.51"
+                            compression="4.15"
+                            min-throttle="0.058"
+                            displacement="664.5"/>
+             <control-input control="THROTTLE" axis="/controls/engines/engine[0]/throttle"/>
+             <control-input control="STARTER" axis="/controls/engines/engine[0]/starter"/>
+             <control-input control="MAGNETOS" axis="/controls/engines/engine[0]/magnetos"/>
+             <control-input control="MIXTURE" axis="/controls/engines/engine[0]/mixture"/>
+  </propeller>
+
+  <!-- Left wheel -->
+  <gear x="2.150" y="0.788" z="-1.287" 
+        compression="0.15" 
+        spring="1.8" 
+        damp="0.3" 
+        on-solid="1" >
+        <control-input axis="/controls/gear/brake-left" control="BRAKE" split="true"/>
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE" split="true"/>
+  </gear>
+
+  <!-- Right wheel -->
+  <gear x="2.150" y="-0.788" z="-1.287" 
+        compression="0.15" 
+        spring="1.8"
+        damp="0.3" 
+        on-solid="1" >
+        <control-input axis="/controls/gear/brake-right" control="BRAKE" split="true"/>
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE" split="true"/>
+  </gear>
+
+  <!-- Tail wheel -->
+  <gear x="-2.154" y="0" z="-0.138" 
+        sfric="1.1"
+        dfric="0.6"
+        compression="0.02">
+        <control-input axis="/controls/flight/rudder" control="STEER" src0="-1.0" src1="1.0" dst0="0.5" dst1="-0.5"/>
+  </gear>
+
+  <!-- Fuel: Forward 142 lbs -->
+  <tank x="1.824" y="0" z="1.162" capacity="142"/>
+  
+</airplane>

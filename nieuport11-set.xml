@@ -1,20 +1,12 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <!-- <PropertyList include="nieuport11-jsbsim-cnf.xml"> -->
 <PropertyList include="nieuport11-yasim-cnf.xml">
 
   <sim>
-    
-    <description>Nieuport 11 (YASim)</description>
+    <description>Nieuport 11</description>
     <author>Emmanuel BARANGER (3D/FDM)</author>
-    
-    <rating>
-      <FDM type="int">     2 </FDM>
-      <systems type="int"> 2 </systems>
-      <cockpit type="int"> 2 </cockpit>
-      <model type="int">   4 </model>
-    </rating>
-    
   </sim>
 
 </PropertyList>
+

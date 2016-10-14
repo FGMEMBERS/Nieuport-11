@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
  
 <PropertyList>
 
@@ -6,27 +6,10 @@
  
     <crank>
       <name>engstart</name>
-      <path>Aircraft/Nieuport-11/Sounds/starter.wav</path>
+      <path>Aircraft/Nieuport-11/Sounds/cranking.wav</path>
       <property>/engines/engine/cranking</property>
       <volume>
         <offset>0.4</offset>
-      </volume>
-      <reference-dist>100</reference-dist>
-      <max-dist>1000</max-dist>
-    </crank>
-
-    <crank>
-      <name>crank</name>
-      <mode>looped</mode>
-      <path>Sounds/cranking.wav</path>
-      <condition>
-        <property>/engines/engine/cranking</property>
-        <not>
-          <property>/engines/engine/running</property>
-        </not>
-      </condition>
-      <volume>
-        <offset>0.5</offset>
       </volume>
       <reference-dist>100</reference-dist>
       <max-dist>1000</max-dist>
@@ -45,7 +28,7 @@
 
     <engine>
       <name>engine</name>
-      <path>Aircraft/Nieuport-11/Sounds/running.wav</path>
+      <path>Aircraft/Nieuport-11/Sounds/engine.wav</path>
       <mode>looped</mode>
       <property>/engines/engine/running</property>
       <volume>
@@ -65,32 +48,6 @@
       <reference-dist>100</reference-dist>
       <max-dist>1000</max-dist>
     </engine>
-
-    <propeller>
-      <name>propeller</name>
-      <mode>looped</mode>
-      <path>Sounds/turboprop1.wav</path>
-      <property>/engines/engine/running</property>
-      <volume>
-        <property>/orientation/alpha-deg</property>
-        <type>log</type>
-        <min>0.2</min>
-        <max>1.0</max>
-      </volume>
-      <volume>
-        <property>/sim/current-view/internal</property>
-        <factor>0.5</factor>
-      </volume>
-      <pitch>
-        <property>/engines/engine/mp-osi</property>
-        <factor>0.0036</factor>
-        <min>0.5</min>
-        <max>2.0</max>
-        <offset>0.9</offset>
-      </pitch>
-      <reference-dist>100</reference-dist>
-      <max-dist>1000</max-dist>
-    </propeller>
 
     <rumble>
       <name>rumble</name>
@@ -174,30 +131,31 @@
     </wind>
 
     <stall>
-      <name>stall</name>
-      <mode>looped</mode>
-      <path>Sounds/stall.wav</path>
-      <condition>
-        <and>
-          <property>/sim/alarms/stall-warning</property>
-          <greater-than>
-            <property>/velocities/airspeed-kt</property>
-            <value>10</value>
-          </greater-than>
-          <not>
-            <property>/gear/gear[0]/wow</property>
-            <property>/gear/gear[1]/wow</property>
-            <property>/gear/gear[2]/wow</property>
-          </not>
-        </and>
-      </condition>
-      <volume>
-        <property>/sim/alarms/stall-warning</property>
-        <max>1.0</max>
-      </volume>
-      <reference-dist>10.0</reference-dist>
-      <max-dist>20.0</max-dist>
-    </stall>
+   <name>stall</name>
+   <mode>looped</mode>
+   <type>avionics</type>
+   <path>Aircraft/Nieuport-11/Sounds/stallbuffet.wav</path>
+   <condition>
+    <and>
+     <property>sim/alarms/stall-warning</property>
+     <greater-than>
+       <property>velocities/airspeed-kt</property>
+       <value>10</value>
+     </greater-than>
+     <not>
+       <property>gear/gear[0]/wow</property>
+       <property>gear/gear[1]/wow</property>
+       <property>gear/gear[2]/wow</property>
+     </not>
+    </and>
+   </condition>
+   <volume>
+    <property>sim/alarms/stall-warning</property>
+    <max>1.0</max>
+   </volume>
+   <reference-dist>10.0</reference-dist>
+   <max-dist>20.0</max-dist>
+  </stall>
 
     <guns> 
       <name>gunfire</name>

@@ -4,6 +4,13 @@
 
   <path>nieuport11.ac</path>
 
+   <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>propdisc</object-name>
+    <object-name>propblur</object-name>
+    <object-name>vitres</object-name>
+   </effect>
+
   <nasal>
     <load>
       var livery_update = aircraft.livery_update.new("Aircraft/Nieuport-11/Models/Liveries", 10);
@@ -49,8 +56,7 @@
     <object-name>roueD</object-name>
     <object-name>axe</object-name>
     <object-name>gun</object-name>
-    <object-name>cables</object-name>
-    
+
     <!-- Objets transparents -->
     <object-name>propdisc</object-name>
     <object-name>propblur</object-name>
@@ -79,36 +85,43 @@
     <object-name>roueD</object-name>
     <object-name>axe</object-name>
     <object-name>gun</object-name>
-    <object-name>cables</object-name>
-    
+
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
     <texture>texture.png</texture>
+<!--
+    <diffuse>
+      <red-prop>diffuse/red</red-prop>
+      <green-prop>diffuse/green</green-prop>
+      <blue-prop>diffuse/blue</blue-prop>
+    </diffuse>
+
+    <ambient>
+      <red-prop>ambient/red</red-prop>
+      <green-prop>ambient/green</green-prop>
+      <blue-prop>ambient/blue</blue-prop>
+    </ambient>
+-->
     <specular>
       <red-prop>specular/red</red-prop>
       <green-prop>specular/green</green-prop>
       <blue-prop>specular/blue</blue-prop>
     </specular>
+
     <emission>
       <red-prop>emission/red</red-prop>
       <green-prop>emission/green</green-prop>
       <blue-prop>emission/blue</blue-prop>
     </emission>
+<!--
+    <shininess>
+      <shininess-prop>shininess</shininess-prop>
+    </shininess>
+-->
   </animation>
 
   <effect>
     <inherits-from>Aircraft/Generic/Effects/Fuselagereflect</inherits-from>
-    <condition>
-      <not><property>sim/rendering/rembrandt/enabled</property></not>
-    </condition>
-    <object-name>capot</object-name>
-  </effect>
-
-  <effect>
-    <inherits-from>Effects/model-combined-deferred</inherits-from>
-    <condition>
-      <property>sim/rendering/rembrandt/enabled</property>
-    </condition>
     <object-name>capot</object-name>
   </effect>
 
@@ -125,53 +138,30 @@
     <object-name>propblur</object-name>
     <object-name>liaisonG</object-name>
     <object-name>liaisonD</object-name>
+    <object-name>cables</object-name>
     <object-name>vitres</object-name>
   </animation>
 
-  <!-- working for Rembrandt -->
-  <effect>
-    <inherits-from>Effects/model-transparent</inherits-from>
-    <condition>
-      <property>sim/rendering/rembrandt/enabled</property>
-    </condition>
-    <object-name>propdisc</object-name>
-    <object-name>propblur</object-name>
-    <object-name>liaisonG</object-name>
-    <object-name>liaisonD</object-name>
-    <object-name>vitres</object-name>
-  </effect>
 
-  <!-- Une ombre pour OSG -->
-  <model>
-    <path>Aircraft/Nieuport-11/Models/shadow.xml</path>
+   <!-- 3D shadow -->
+  <!-- <model>
+    <path>Aircraft/Nieuport-11/Models/nieuport11-shadow.xml</path>
     <offsets>
-      <x-m>  0.00 </x-m>
-      <y-m>  0.00 </y-m>
-      <z-m> -0.90 </z-m>
+      <x-m> 0.00 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.00 </z-m>
     </offsets>
-  </model>
-
-  <!-- Intérieur -->
-  <model>
-    <name>Interieur</name>
-    <path>Aircraft/Nieuport-11/Models/Interior/interior.xml</path>
-  </model>
-
-  <!-- For Rembrandt -->
-  <animation>
-    <type>noshadow</type>
-    <object-name>Interieur</object-name>
-  </animation>
+  </model> -->
 
   <!-- Moteur -->
-  <model>
+  <!-- <model>
     <path>Aircraft/Nieuport-11/Models/Engine/engine.xml</path>
     <offsets>
       <x-m> -2.659 </x-m>
       <y-m>  0.000 </y-m>
       <z-m>  0.087 </z-m>
     </offsets>
-  </model>
+  </model> -->
 
   <!-- Effets de tir -->
   <model>
@@ -180,7 +170,9 @@
       <x-m> -1.992 </x-m>
       <y-m>  0.000 </y-m>
       <z-m>  1.240 </z-m>
+      <roll-deg>    0 </roll-deg>
       <pitch-deg> 180 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
     </offsets>
   </model>
 
@@ -192,6 +184,8 @@
       <x-m> -3.000 </x-m>
       <y-m> -0.319 </y-m>
       <z-m>  0.000 </z-m>
+      <roll-deg>      0 </roll-deg>
+      <pitch-deg>     0 </pitch-deg>
       <heading-deg> -30 </heading-deg>
     </offsets>
   </model>
@@ -203,6 +197,8 @@
       <x-m> -3.000 </x-m>
       <y-m>  0.319 </y-m>
       <z-m>  0.000 </z-m>
+      <roll-deg>     0 </roll-deg>
+      <pitch-deg>    0 </pitch-deg>
       <heading-deg> 30 </heading-deg>
     </offsets>
   </model>
@@ -238,22 +234,34 @@
     </offsets>
   </model>
 
-  <!-- L'hélice --> 
+  <!-- Intérieur -->
+  <model>
+    <path>Aircraft/Nieuport-11/Models/Interior/interior.xml</path>
+    <offsets>
+      <x-m> 0 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0 </z-m>
+    </offsets>
+  </model>
+
+  <!-- L'helice --> 
   <animation>
     <name>HeliceComplete</name>
     <object-name>propdisc</object-name>
     <object-name>propblur</object-name>
     <object-name>helice</object-name>
+    <object-name>engine</object-name>
+    <object-name>prophub</object-name>
   </animation>
 
-  <!-- Séléction de l'objet visible en fonction des rpm -->
+  <!-- Selection de l'objet visible en fonction des rpm -->
   <animation>
     <type>select</type>
     <object-name>propdisc</object-name>
     <condition>
       <greater-than>
         <property>engines/engine[0]/rpm</property>
-        <value>1100</value>
+        <value>460</value>
       </greater-than>
     </condition>
   </animation>
@@ -265,11 +273,11 @@
     <and>
       <greater-than>
         <property>engines/engine[0]/rpm</property>
-        <value>600.000</value>
+        <value>300.000</value>
       </greater-than>
       <less-than>
         <property>engines/engine[0]/rpm</property>
-        <value>1100.001</value>
+        <value>500.001</value>
       </less-than>
     </and>
     </condition>
@@ -281,7 +289,7 @@
     <condition>
       <less-than>
         <property>engines/engine[0]/rpm</property>
-	<value>1100</value>
+	<value>470</value>
       </less-than>
     </condition>
   </animation>
@@ -292,7 +300,7 @@
     <condition>
       <greater-than>
         <property>engines/engine[0]/rpm</property>
-        <value> 5 </value>
+        <value> 20 </value>
       </greater-than>
     </condition>
     <property>engines/engine[0]/rpm</property>
@@ -412,3 +420,4 @@
   </animation>
 
 </PropertyList>
+
